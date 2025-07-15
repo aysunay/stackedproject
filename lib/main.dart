@@ -1,28 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:stackedproject/app/app.bottomsheets.dart';
-import 'package:stackedproject/app/app.dialogs.dart';
-import 'package:stackedproject/app/app.locator.dart';
-import 'package:stackedproject/app/app.router.dart';
-import 'package:stacked_services/stacked_services.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await setupLocator();
-  setupDialogUi();
-  setupBottomSheetUi();
-  runApp(const MainApp());
+void main() {
+  runApp(const MyApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: Routes.startupView,
-      onGenerateRoute: StackedRouter().onGenerateRoute,
-      navigatorKey: StackedService.navigatorKey,
-      navigatorObservers: [StackedService.routeObserver],
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: const Text('myTechnic'),
+        ),
+        body: Center(
+          child: SizedBox(
+            width: 350,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Sign In', style: TextStyle(fontSize: 28)),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      border: OutlineInputBorder(),
+                    ),
+                    obscureText: true,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Login'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
