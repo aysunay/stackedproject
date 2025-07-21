@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 class AuthService {
   Future<bool> login(String email, String password) async {
     try {
