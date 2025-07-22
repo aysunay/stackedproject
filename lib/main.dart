@@ -23,7 +23,8 @@ class _MyAppState extends State<MyApp> {
       title: "Core OnTime",
       theme: ThemeData(
         fontFamily: 'OpenSans',
-        textTheme: Theme.of(context).textTheme.apply(fontFamily: 'OpenSans').apply(),
+        textTheme:
+            Theme.of(context).textTheme.apply(fontFamily: 'OpenSans').apply(),
         dialogTheme: const DialogThemeData(backgroundColor: Colors.white),
         splashFactory: NoSplash.splashFactory,
         highlightColor: Colors.transparent,

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stackedproject/ui/common/app_colors.dart';
 import 'package:stackedproject/ui/common/ui_helpers.dart';
+import 'package:stackedproject/ui/views/shared/shared_view.dart';
 
 import 'home_viewmodel.dart';
 
-class HomeView extends StackedView<HomeViewModel> {
+class HomeView extends SharedView<HomeViewModel> {
   const HomeView({Key? key}) : super(key: key);
 
   @override
