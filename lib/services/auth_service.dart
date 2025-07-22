@@ -5,11 +5,16 @@ import 'package:http/http.dart' as http;
 class AuthService {
   Future<bool> login(String email, String password) async {
     try {
-      final url = Uri.parse('http://192.168.60.111:5044/api/Auth/login');
+      var body = {
+        "username": email,
+        "password": password,
+      };
+
+      final url = Uri.parse('https://dummyjson.com/auth/login');
       final response = await http.post(
         url,
         headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({'email': email, 'password': password}),
+        body: jsonEncode(body),
       );
 
       return response.statusCode == 200;
