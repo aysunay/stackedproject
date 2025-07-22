@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import '../viewmodels/login_viewmodel.dart';
+import 'package:stackedproject/ui/views/login/login_viewmodel.dart';
 
 class LoginView extends StackedView<LoginViewModel> {
   const LoginView({super.key});
 
   @override
-  Widget builder(BuildContext context, LoginViewModel viewModel, Widget? child) {
+  Widget builder(
+      BuildContext context, LoginViewModel viewModel, Widget? child) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -88,28 +89,7 @@ class LoginView extends StackedView<LoginViewModel> {
                     width: 145,
                     height: 35,
                     child: ElevatedButton(
-                      onPressed: () async {
-                        bool loginSuccess = await viewModel.login();
-                        if (loginSuccess) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Login Successful'),
-                              backgroundColor: Colors.pinkAccent,
-                              duration: Duration(seconds: 3),
-                            ),
-                          );
-                          await Future.delayed(const Duration(seconds: 1));
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                                builder: (context) => const BlankScreen()),
-                          );
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content: Text('E-posta veya şifre yanlış!')),
-                          );
-                        }
-                      },
+                      onPressed: () async => await viewModel.login(),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.red,
                         foregroundColor: Colors.white,
@@ -141,14 +121,4 @@ class LoginView extends StackedView<LoginViewModel> {
 
   @override
   LoginViewModel viewModelBuilder(BuildContext context) => LoginViewModel();
-}
-
-class BlankScreen extends StatelessWidget {
-  const BlankScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('Boş Sayfa')),
-    );
-  }
 }

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:http/http.dart' as http;
 
 class AuthService {
@@ -13,7 +14,7 @@ class AuthService {
 
       return response.statusCode == 200;
     } catch (e) {
-      print("Login error: $e");
+      log("Login error: $e");
       return false;
     }
   }
