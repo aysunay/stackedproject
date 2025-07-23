@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
         hoverColor: Colors.transparent,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.loginView,
+      initialRoute: Routes.myTeamView,
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,
       navigatorObservers: [
