@@ -3,9 +3,11 @@ import 'package:stacked_services/stacked_services.dart';
 import 'app/app.locator.dart';
 import 'app/app.router.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setupLocator();
+  await setupLocator();
+
+
   runApp(const MyApp());
 }
 
@@ -23,7 +25,8 @@ class _MyAppState extends State<MyApp> {
       title: "Core OnTime",
       theme: ThemeData(
         fontFamily: 'OpenSans',
-        textTheme: Theme.of(context).textTheme.apply(fontFamily: 'OpenSans').apply(),
+        textTheme:
+            Theme.of(context).textTheme.apply(fontFamily: 'OpenSans').apply(),
         dialogTheme: const DialogThemeData(backgroundColor: Colors.white),
         splashFactory: NoSplash.splashFactory,
         highlightColor: Colors.transparent,
@@ -31,7 +34,7 @@ class _MyAppState extends State<MyApp> {
         hoverColor: Colors.transparent,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.loginView,
+      initialRoute: Routes.cardListView,
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,
       navigatorObservers: [

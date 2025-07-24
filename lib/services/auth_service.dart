@@ -3,6 +3,10 @@ import 'dart:developer';
 import 'package:http/http.dart' as http;
 
 class AuthService {
+  String? _token;
+
+  String? get token => _token;
+
   Future<bool> login(String email, String password) async {
     try {
       var body = {
@@ -17,7 +21,13 @@ class AuthService {
         body: jsonEncode(body),
       );
 
-      return response.statusCode == 200;
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        _token = data['token'];
+        return true;
+      } else {
+        return false;
+      }
     } catch (e) {
       log("Login error: $e");
       return false;
