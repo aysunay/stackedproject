@@ -29,30 +29,39 @@ abstract class SharedView<T extends BaseViewModel> extends StackedView<T> {
   Widget builder(BuildContext context, T viewModel, Widget? child) {
     return Scaffold(
       appBar: AppBar(
-        leading: (leftIcons.isNotEmpty
-            ? Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  if (Navigator.of(context).canPop())
-                    BackButton(onPressed: () {}),
-                ],
-              )
-            : (Navigator.of(context).canPop() ? const BackButton() : null)),
-
-        //leading:  const BackButton(),
-        centerTitle: true,
         title: Text(title ?? ""),
-        actions: appBarActions,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: const Icon(Icons.arrow_back_ios_new),
+
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+            },
+            icon: const Icon(Icons.logout),
+          ),
+          IconButton(
+            onPressed: () {
+            },
+            icon: const Icon(Icons.notifications),
+            ),
+            IconButton(
+            onPressed: () {
+           },
+              icon: const Icon(Icons.settings),
+          ),
+        ],
       ),
+
       body: buildBody(context, viewModel),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         currentIndex: currentIndex ?? 0,
-        onTap: (value) => locator<NavigationService>().navigateToLoginView(),
+        onTap: onTabTapped,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today), label: "Schedule"),
+          BottomNavigationBarItem(icon: Icon(Icons.calendar_today), label: "Schedule"),
           BottomNavigationBarItem(icon: Icon(Icons.people), label: "Clients"),
           BottomNavigationBarItem(icon: Icon(Icons.check_box), label: "Tasks"),
           BottomNavigationBarItem(
