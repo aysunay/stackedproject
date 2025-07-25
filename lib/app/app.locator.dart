@@ -10,20 +10,18 @@ import 'package:dio/dio.dart';
 import 'package:stacked_services/src/bottom_sheet/bottom_sheet_service.dart';
 import 'package:stacked_services/src/dialog/dialog_service.dart';
 import 'package:stacked_services/src/navigation/navigation_service.dart';
-import 'package:stacked_services/stacked_services.dart';
 import 'package:stacked_shared/stacked_shared.dart';
 
 import '../services/api_service.dart';
 import '../services/auth_service.dart';
 import '../services/card_service.dart';
-import '../services/signalr_service.dart';
+import '../services/signal_r_service.dart';
 
 final locator = StackedLocator.instance;
 
 Future<void> setupLocator({
   String? environment,
   EnvironmentFilter? environmentFilter,
-
 }) async {
 // Register environments
   locator.registerEnvironment(
@@ -34,8 +32,7 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => AuthService());
-  locator.registerLazySingleton(() => ApiService(Dio()));
-  locator.registerLazySingleton(() => SnackbarService());
   locator.registerLazySingleton(() => SignalRService());
-  locator.registerLazySingleton(() => CardService(locator<SignalRService>()));
+  locator.registerLazySingleton(() => ApiService(Dio()));
+  locator.registerLazySingleton(() => CardService());
 }

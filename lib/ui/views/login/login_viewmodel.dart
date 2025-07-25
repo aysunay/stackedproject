@@ -5,7 +5,7 @@ import 'package:stackedproject/app/app.locator.dart';
 import 'package:stackedproject/app/app.router.dart';
 import 'package:stackedproject/services/auth_service.dart';
 
-import '../../../services/signalr_service.dart';
+import '../../../services/signal_r_service.dart';
 
 class LoginViewModel extends BaseViewModel {
   final _authService = locator<AuthService>();
@@ -45,7 +45,6 @@ class LoginViewModel extends BaseViewModel {
       _snackbarService.showSnackbar(message: 'E-posta veya şifre yanlış!');
     }
   }
-
 
   @override
   void dispose() {

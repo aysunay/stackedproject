@@ -20,14 +20,17 @@ OnTimeCardModel _$OnTimeCardModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$OnTimeCardModel {
-  String? get cardId => throw _privateConstructorUsedError;
-  String? get cardType => throw _privateConstructorUsedError;
-  String? get cardBarcode => throw _privateConstructorUsedError;
-  String? get cardStatus => throw _privateConstructorUsedError;
-  String? get cardStatusId => throw _privateConstructorUsedError;
-  String? get cardDescription => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
+  int? get typeId => throw _privateConstructorUsedError;
+  String? get barcode => throw _privateConstructorUsedError;
+  int? get statusId => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   String? get tailNo => throw _privateConstructorUsedError;
   bool? get isCritical => throw _privateConstructorUsedError;
+  String? get createDate => throw _privateConstructorUsedError;
+  String? get createUser => throw _privateConstructorUsedError;
+  String? get updateDate => throw _privateConstructorUsedError;
+  String? get updateUser => throw _privateConstructorUsedError;
   int get staffCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,14 +46,17 @@ abstract class $OnTimeCardModelCopyWith<$Res> {
       _$OnTimeCardModelCopyWithImpl<$Res, OnTimeCardModel>;
   @useResult
   $Res call(
-      {String? cardId,
-      String? cardType,
-      String? cardBarcode,
-      String? cardStatus,
-      String? cardStatusId,
-      String? cardDescription,
+      {int? id,
+      int? typeId,
+      String? barcode,
+      int? statusId,
+      String? description,
       String? tailNo,
       bool? isCritical,
+      String? createDate,
+      String? createUser,
+      String? updateDate,
+      String? updateUser,
       int staffCount});
 }
 
@@ -67,40 +73,39 @@ class _$OnTimeCardModelCopyWithImpl<$Res, $Val extends OnTimeCardModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cardId = freezed,
-    Object? cardType = freezed,
-    Object? cardBarcode = freezed,
-    Object? cardStatus = freezed,
-    Object? cardStatusId = freezed,
-    Object? cardDescription = freezed,
+    Object? id = freezed,
+    Object? typeId = freezed,
+    Object? barcode = freezed,
+    Object? statusId = freezed,
+    Object? description = freezed,
     Object? tailNo = freezed,
     Object? isCritical = freezed,
+    Object? createDate = freezed,
+    Object? createUser = freezed,
+    Object? updateDate = freezed,
+    Object? updateUser = freezed,
     Object? staffCount = null,
   }) {
     return _then(_value.copyWith(
-      cardId: freezed == cardId
-          ? _value.cardId
-          : cardId // ignore: cast_nullable_to_non_nullable
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      typeId: freezed == typeId
+          ? _value.typeId
+          : typeId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      barcode: freezed == barcode
+          ? _value.barcode
+          : barcode // ignore: cast_nullable_to_non_nullable
               as String?,
-      cardType: freezed == cardType
-          ? _value.cardType
-          : cardType // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cardBarcode: freezed == cardBarcode
-          ? _value.cardBarcode
-          : cardBarcode // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cardStatus: freezed == cardStatus
-          ? _value.cardStatus
-          : cardStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cardStatusId: freezed == cardStatusId
-          ? _value.cardStatusId
-          : cardStatusId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cardDescription: freezed == cardDescription
-          ? _value.cardDescription
-          : cardDescription // ignore: cast_nullable_to_non_nullable
+      statusId: freezed == statusId
+          ? _value.statusId
+          : statusId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
       tailNo: freezed == tailNo
           ? _value.tailNo
@@ -110,6 +115,22 @@ class _$OnTimeCardModelCopyWithImpl<$Res, $Val extends OnTimeCardModel>
           ? _value.isCritical
           : isCritical // ignore: cast_nullable_to_non_nullable
               as bool?,
+      createDate: freezed == createDate
+          ? _value.createDate
+          : createDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createUser: freezed == createUser
+          ? _value.createUser
+          : createUser // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updateDate: freezed == updateDate
+          ? _value.updateDate
+          : updateDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updateUser: freezed == updateUser
+          ? _value.updateUser
+          : updateUser // ignore: cast_nullable_to_non_nullable
+              as String?,
       staffCount: null == staffCount
           ? _value.staffCount
           : staffCount // ignore: cast_nullable_to_non_nullable
@@ -127,14 +148,17 @@ abstract class _$$OnTimeCardModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? cardId,
-      String? cardType,
-      String? cardBarcode,
-      String? cardStatus,
-      String? cardStatusId,
-      String? cardDescription,
+      {int? id,
+      int? typeId,
+      String? barcode,
+      int? statusId,
+      String? description,
       String? tailNo,
       bool? isCritical,
+      String? createDate,
+      String? createUser,
+      String? updateDate,
+      String? updateUser,
       int staffCount});
 }
 
@@ -149,40 +173,39 @@ class __$$OnTimeCardModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cardId = freezed,
-    Object? cardType = freezed,
-    Object? cardBarcode = freezed,
-    Object? cardStatus = freezed,
-    Object? cardStatusId = freezed,
-    Object? cardDescription = freezed,
+    Object? id = freezed,
+    Object? typeId = freezed,
+    Object? barcode = freezed,
+    Object? statusId = freezed,
+    Object? description = freezed,
     Object? tailNo = freezed,
     Object? isCritical = freezed,
+    Object? createDate = freezed,
+    Object? createUser = freezed,
+    Object? updateDate = freezed,
+    Object? updateUser = freezed,
     Object? staffCount = null,
   }) {
     return _then(_$OnTimeCardModelImpl(
-      cardId: freezed == cardId
-          ? _value.cardId
-          : cardId // ignore: cast_nullable_to_non_nullable
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      typeId: freezed == typeId
+          ? _value.typeId
+          : typeId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      barcode: freezed == barcode
+          ? _value.barcode
+          : barcode // ignore: cast_nullable_to_non_nullable
               as String?,
-      cardType: freezed == cardType
-          ? _value.cardType
-          : cardType // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cardBarcode: freezed == cardBarcode
-          ? _value.cardBarcode
-          : cardBarcode // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cardStatus: freezed == cardStatus
-          ? _value.cardStatus
-          : cardStatus // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cardStatusId: freezed == cardStatusId
-          ? _value.cardStatusId
-          : cardStatusId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      cardDescription: freezed == cardDescription
-          ? _value.cardDescription
-          : cardDescription // ignore: cast_nullable_to_non_nullable
+      statusId: freezed == statusId
+          ? _value.statusId
+          : statusId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
       tailNo: freezed == tailNo
           ? _value.tailNo
@@ -192,6 +215,22 @@ class __$$OnTimeCardModelImplCopyWithImpl<$Res>
           ? _value.isCritical
           : isCritical // ignore: cast_nullable_to_non_nullable
               as bool?,
+      createDate: freezed == createDate
+          ? _value.createDate
+          : createDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createUser: freezed == createUser
+          ? _value.createUser
+          : createUser // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updateDate: freezed == updateDate
+          ? _value.updateDate
+          : updateDate // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updateUser: freezed == updateUser
+          ? _value.updateUser
+          : updateUser // ignore: cast_nullable_to_non_nullable
+              as String?,
       staffCount: null == staffCount
           ? _value.staffCount
           : staffCount // ignore: cast_nullable_to_non_nullable
@@ -204,42 +243,51 @@ class __$$OnTimeCardModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OnTimeCardModelImpl implements _OnTimeCardModel {
   const _$OnTimeCardModelImpl(
-      {this.cardId,
-      this.cardType,
-      this.cardBarcode,
-      this.cardStatus,
-      this.cardStatusId,
-      this.cardDescription,
+      {this.id,
+      this.typeId,
+      this.barcode,
+      this.statusId,
+      this.description,
       this.tailNo,
       this.isCritical,
+      this.createDate,
+      this.createUser,
+      this.updateDate,
+      this.updateUser,
       this.staffCount = 0});
 
   factory _$OnTimeCardModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$OnTimeCardModelImplFromJson(json);
 
   @override
-  final String? cardId;
+  final int? id;
   @override
-  final String? cardType;
+  final int? typeId;
   @override
-  final String? cardBarcode;
+  final String? barcode;
   @override
-  final String? cardStatus;
+  final int? statusId;
   @override
-  final String? cardStatusId;
-  @override
-  final String? cardDescription;
+  final String? description;
   @override
   final String? tailNo;
   @override
   final bool? isCritical;
+  @override
+  final String? createDate;
+  @override
+  final String? createUser;
+  @override
+  final String? updateDate;
+  @override
+  final String? updateUser;
   @override
   @JsonKey()
   final int staffCount;
 
   @override
   String toString() {
-    return 'OnTimeCardModel(cardId: $cardId, cardType: $cardType, cardBarcode: $cardBarcode, cardStatus: $cardStatus, cardStatusId: $cardStatusId, cardDescription: $cardDescription, tailNo: $tailNo, isCritical: $isCritical, staffCount: $staffCount)';
+    return 'OnTimeCardModel(id: $id, typeId: $typeId, barcode: $barcode, statusId: $statusId, description: $description, tailNo: $tailNo, isCritical: $isCritical, createDate: $createDate, createUser: $createUser, updateDate: $updateDate, updateUser: $updateUser, staffCount: $staffCount)';
   }
 
   @override
@@ -247,20 +295,24 @@ class _$OnTimeCardModelImpl implements _OnTimeCardModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OnTimeCardModelImpl &&
-            (identical(other.cardId, cardId) || other.cardId == cardId) &&
-            (identical(other.cardType, cardType) ||
-                other.cardType == cardType) &&
-            (identical(other.cardBarcode, cardBarcode) ||
-                other.cardBarcode == cardBarcode) &&
-            (identical(other.cardStatus, cardStatus) ||
-                other.cardStatus == cardStatus) &&
-            (identical(other.cardStatusId, cardStatusId) ||
-                other.cardStatusId == cardStatusId) &&
-            (identical(other.cardDescription, cardDescription) ||
-                other.cardDescription == cardDescription) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.typeId, typeId) || other.typeId == typeId) &&
+            (identical(other.barcode, barcode) || other.barcode == barcode) &&
+            (identical(other.statusId, statusId) ||
+                other.statusId == statusId) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.tailNo, tailNo) || other.tailNo == tailNo) &&
             (identical(other.isCritical, isCritical) ||
                 other.isCritical == isCritical) &&
+            (identical(other.createDate, createDate) ||
+                other.createDate == createDate) &&
+            (identical(other.createUser, createUser) ||
+                other.createUser == createUser) &&
+            (identical(other.updateDate, updateDate) ||
+                other.updateDate == updateDate) &&
+            (identical(other.updateUser, updateUser) ||
+                other.updateUser == updateUser) &&
             (identical(other.staffCount, staffCount) ||
                 other.staffCount == staffCount));
   }
@@ -269,14 +321,17 @@ class _$OnTimeCardModelImpl implements _OnTimeCardModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      cardId,
-      cardType,
-      cardBarcode,
-      cardStatus,
-      cardStatusId,
-      cardDescription,
+      id,
+      typeId,
+      barcode,
+      statusId,
+      description,
       tailNo,
       isCritical,
+      createDate,
+      createUser,
+      updateDate,
+      updateUser,
       staffCount);
 
   @JsonKey(ignore: true)
@@ -296,35 +351,44 @@ class _$OnTimeCardModelImpl implements _OnTimeCardModel {
 
 abstract class _OnTimeCardModel implements OnTimeCardModel {
   const factory _OnTimeCardModel(
-      {final String? cardId,
-      final String? cardType,
-      final String? cardBarcode,
-      final String? cardStatus,
-      final String? cardStatusId,
-      final String? cardDescription,
+      {final int? id,
+      final int? typeId,
+      final String? barcode,
+      final int? statusId,
+      final String? description,
       final String? tailNo,
       final bool? isCritical,
+      final String? createDate,
+      final String? createUser,
+      final String? updateDate,
+      final String? updateUser,
       final int staffCount}) = _$OnTimeCardModelImpl;
 
   factory _OnTimeCardModel.fromJson(Map<String, dynamic> json) =
       _$OnTimeCardModelImpl.fromJson;
 
   @override
-  String? get cardId;
+  int? get id;
   @override
-  String? get cardType;
+  int? get typeId;
   @override
-  String? get cardBarcode;
+  String? get barcode;
   @override
-  String? get cardStatus;
+  int? get statusId;
   @override
-  String? get cardStatusId;
-  @override
-  String? get cardDescription;
+  String? get description;
   @override
   String? get tailNo;
   @override
   bool? get isCritical;
+  @override
+  String? get createDate;
+  @override
+  String? get createUser;
+  @override
+  String? get updateDate;
+  @override
+  String? get updateUser;
   @override
   int get staffCount;
   @override

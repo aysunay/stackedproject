@@ -21,11 +21,8 @@ const Widget verticalSpaceMedium = SizedBox(height: _mediumSize);
 const Widget verticalSpaceLarge = SizedBox(height: _largeSize);
 const Widget verticalSpaceMassive = SizedBox(height: _massiveSize);
 
-Widget fixedSizeBox({
-  double width = 145,
-  double height = 35,
-  required Widget child
-}){
+Widget fixedSizeBox(
+    {double width = 145, double height = 35, required Widget child}) {
   return SizedBox(width: width, height: height, child: child);
 }
 

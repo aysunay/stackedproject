@@ -6,17 +6,19 @@ part 'on_time_card_model.g.dart';
 @freezed
 class OnTimeCardModel with _$OnTimeCardModel {
   const factory OnTimeCardModel({
-    String? cardId,
-    String? cardType,
-    String? cardBarcode,
-    String? cardStatus,
-    String? cardStatusId,
-    String? cardDescription,
+    int? id,
+    int? typeId,
+    String? barcode,
+    int? statusId,
+    String? description,
     String? tailNo,
     bool? isCritical,
+    String? createDate,
+    String? createUser,
+    String? updateDate,
+    String? updateUser,
     @Default(0) int staffCount,
   }) = _OnTimeCardModel;
 
-  factory OnTimeCardModel.fromJson(Map<String, dynamic> json) =>
-      _$OnTimeCardModelFromJson(json);
+  factory OnTimeCardModel.fromJson(Map<String, dynamic> json) => _$OnTimeCardModelFromJson(json);
 }

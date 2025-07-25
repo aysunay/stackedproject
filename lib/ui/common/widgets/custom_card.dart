@@ -80,9 +80,8 @@ class CustomCard extends StatelessWidget {
       color: backgroundColor ?? white,
       shape: border ??
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-            side: const BorderSide(color: grayLight, width: 1)
-          ),
+              borderRadius: BorderRadius.circular(8),
+              side: const BorderSide(color: grayLight, width: 1)),
       elevation: 0,
       child: GestureDetector(
         onTap: onTap,

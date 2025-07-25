@@ -7,6 +7,9 @@ import 'package:stacked_services/stacked_services.dart';
 import 'package:stackedproject/ui/views/login/login_view.dart';
 import 'package:stackedproject/services/auth_service.dart';
 import 'package:stackedproject/ui/views/card_list/card_list_view.dart';
+import 'package:stackedproject/services/signal_r_service.dart';
+import 'package:stackedproject/services/api_service.dart';
+import 'package:stackedproject/services/card_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -22,6 +25,9 @@ import 'package:stackedproject/ui/views/card_list/card_list_view.dart';
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: AuthService),
+    LazySingleton(classType: SignalRService),
+    LazySingleton(classType: ApiService),
+    LazySingleton(classType: CardService),
 // @stacked-service
   ],
   bottomsheets: [

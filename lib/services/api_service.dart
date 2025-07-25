@@ -4,24 +4,22 @@ import '../model/on_time_card_model.dart';
 
 part 'api_service.g.dart';
 
-@RestApi(baseUrl: "https://api.example.com")
-//BAKILACAK buraya sanırım backend kısmı yapışacak
+@RestApi(baseUrl: "https://localhost:7163/api")
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
-  @GET("/ontimecards")
+  @GET("/getTaskCards")
   Future<List<OnTimeCardModel>> getOnTimeCards();
 
-  @GET("/ontimecards/{id}")
-  Future<OnTimeCardModel> getOnTimeCard(@Path("id") int id);
-
-  @POST("/ontimecards")
+  @POST("/addTaskCard")
   Future<OnTimeCardModel> createOnTimeCard(@Body() OnTimeCardModel card);
 
-  @PUT("/ontimecards/{id}")
-  Future<OnTimeCardModel> updateOnTimeCard(
-      @Path("id") int id, @Body() OnTimeCardModel card);
+  @GET("/getTaskCard/{id}")
+  Future<OnTimeCardModel> getOnTimeCard(@Path("id") int id);
 
-  @DELETE("/ontimecards/{id}")
+  @PUT("/updateTaskCard/{id}")
+  Future<OnTimeCardModel> updateOnTimeCard(@Path("id") int id, @Body() OnTimeCardModel card);
+
+  @DELETE("/deleteTaskCard/{id}")
   Future<void> deleteOnTimeCard(@Path("id") int id);
 }
