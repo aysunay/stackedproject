@@ -10,11 +10,12 @@ class MyProfileView extends SharedView<MyProfileViewModel> {
 
   @override
   List<Widget> get leftIcons => [
-    const BackButton(color: Colors.black),
-  ];
+        const BackButton(color: Colors.black),
+      ];
 
   @override
-  List<Widget> buildActions(BuildContext context, MyProfileViewModel viewModel) {
+  List<Widget> buildActions(
+      BuildContext context, MyProfileViewModel viewModel) {
     return [];
   }
 
@@ -31,8 +32,8 @@ class MyProfileView extends SharedView<MyProfileViewModel> {
         children: [
           const CircleAvatar(
             radius: 50,
-            backgroundImage: NetworkImage(
-                'https://randomuser.me/api/portraits/women/1.jpg'),
+            backgroundImage:
+                NetworkImage('https://randomuser.me/api/portraits/women/1.jpg'),
           ),
           const SizedBox(height: 16),
           const Text('Jenny Wilson',
@@ -82,7 +83,8 @@ class MyProfileView extends SharedView<MyProfileViewModel> {
     );
   }
 
-  Widget _infoCard({required IconData icon, required String title, String? subtitle}) {
+  Widget _infoCard(
+      {required IconData icon, required String title, String? subtitle}) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 6),
       child: ListTile(

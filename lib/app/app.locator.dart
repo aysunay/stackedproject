@@ -10,9 +10,6 @@ import 'package:dio/dio.dart';
 import 'package:stacked_services/src/bottom_sheet/bottom_sheet_service.dart';
 import 'package:stacked_services/src/dialog/dialog_service.dart';
 import 'package:stacked_services/src/navigation/navigation_service.dart';
-import 'package:stacked_services/src/bottom_sheet/bottom_sheet_service.dart';
-import 'package:stacked_services/src/dialog/dialog_service.dart';
-import 'package:stacked_services/src/navigation/navigation_service.dart';
 import 'package:stacked_services/src/snackbar/snackbar_service.dart';
 import 'package:stacked_shared/stacked_shared.dart';
 
@@ -36,9 +33,9 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => BottomSheetService());
   locator.registerLazySingleton(() => AuthService());
+  locator.registerLazySingleton(() => TeamApiService(Dio()));
+  locator.registerLazySingleton(() => SnackbarService());
   locator.registerLazySingleton(() => SignalRService());
   locator.registerLazySingleton(() => ApiService(Dio()));
   locator.registerLazySingleton(() => CardService());
-  locator.registerLazySingleton(() => TeamApiService());
-  locator.registerLazySingleton(() => SnackbarService());
 }

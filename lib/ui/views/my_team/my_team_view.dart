@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stackedproject/ui/views/shared/shared_view.dart';
-import 'package:stackedproject/model/technician_model.dart';
 import 'my_team_viewmodel.dart';
 
 class MyTeamView extends SharedView<MyTeamViewModel> {
@@ -14,12 +13,6 @@ class MyTeamView extends SharedView<MyTeamViewModel> {
 
   @override
   MyTeamViewModel viewModelBuilder(BuildContext context) => MyTeamViewModel();
-
-  @override
-  void onViewModelReady(MyTeamViewModel viewModel) {
-    viewModel.initSignalR();
-    viewModel.loadTeam("facility123");
-  }
 
   @override
   List<Widget> buildActions(BuildContext context, MyTeamViewModel viewModel) {
@@ -41,8 +34,7 @@ class MyTeamView extends SharedView<MyTeamViewModel> {
     }
 
     if (viewModel.hasError) {
-      return Center(
-          child: Text(viewModel.modelError ?? "An unknown error occurred"));
+      return Center(child: Text(viewModel.modelError ?? "An unknown error occurred"));
     }
 
     if (viewModel.technicians.isEmpty) {
@@ -61,7 +53,8 @@ class MyTeamView extends SharedView<MyTeamViewModel> {
             trailing: viewModel.isTeamLeader
                 ? IconButton(
                     icon: const Icon(Icons.delete, color: Colors.red),
-                    onPressed: () => viewModel.removeTechnician(tech.id),
+                    onPressed: () {},
+                    // onPressed: () => viewModel.removeTechnician(tech.id),
                   )
                 : null,
           ),

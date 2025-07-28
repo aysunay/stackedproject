@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stackedproject/ui/common/app_colors.dart';
-import 'package:stackedproject/ui/common/ui_helpers.dart';
 import 'package:stackedproject/ui/views/login/login_viewmodel.dart';
 
 class LoginView extends StackedView<LoginViewModel> {
   const LoginView({super.key});
 
   @override
-  Widget builder(
-      BuildContext context, LoginViewModel viewModel, Widget? child) {
+  Widget builder(BuildContext context, LoginViewModel viewModel, Widget? child) {
     return Scaffold(
       backgroundColor: Colors.white70,
       body: Column(
@@ -65,9 +62,7 @@ class LoginView extends StackedView<LoginViewModel> {
                                 border: const OutlineInputBorder(),
                                 suffixIcon: IconButton(
                                   icon: Icon(
-                                    viewModel.obscurePassword
-                                        ? Icons.visibility_off
-                                        : Icons.visibility,
+                                    viewModel.obscurePassword ? Icons.visibility_off : Icons.visibility,
                                   ),
                                   onPressed: viewModel.toggleObscurePassword,
                                 ),

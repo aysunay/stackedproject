@@ -13,7 +13,7 @@ class AuthService {
   UserModel? get currentUser => _currentUser;
 
   //TODO: Role bilgisi db, api ve uygulamada Enum olarak tutulacak.
-  bool get isTeamLeader => _currentUser?.role == 'team_leader';
+  // bool get isTeamLeader => _currentUser?.role == 'team_leader';
 
   Future<bool> login(String email, String password) async {
     try {
@@ -41,8 +41,6 @@ class AuthService {
           id: data['id'].toString(),
           email: data['email'] ?? '',
           name: data['firstName'] ?? '',
-          // role: data['role'] ?? 'intern',
-          // password: password,
         );
 
         return true;
