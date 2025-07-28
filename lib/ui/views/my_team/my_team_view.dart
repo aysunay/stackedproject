@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stackedproject/ui/views/shared/shared_view.dart';
+import '../../common/app_colors.dart';
 import 'my_team_viewmodel.dart';
 
 class MyTeamView extends SharedView<MyTeamViewModel> {
@@ -52,7 +53,7 @@ class MyTeamView extends SharedView<MyTeamViewModel> {
             subtitle: Text("Role: ${tech.role}"),
             trailing: viewModel.isTeamLeader
                 ? IconButton(
-                    icon: const Icon(Icons.delete, color: Colors.red),
+                    icon: const Icon(Icons.delete, color: red),
                     onPressed: () {},
                     // onPressed: () => viewModel.removeTechnician(tech.id),
                   )

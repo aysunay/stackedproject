@@ -36,7 +36,6 @@ class LoginViewModel extends BaseViewModel {
         duration: const Duration(seconds: 2),
       );
 
-      // TODO: navigaton service kullanarak sayfa değişimi yapılacak
       await Future.delayed(const Duration(seconds: 1));
       _navigationService.replaceWithCardListView();
     } else {

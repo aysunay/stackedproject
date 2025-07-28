@@ -100,7 +100,7 @@ class CardListView extends SharedView<CardListViewModel> {
                       ),
                     ],
                   ),
-                  backgroundColor: Colors.white,
+                  backgroundColor: white,
                   subtitleWidget: null,
                   descriptionWidget: Text(
                     card.description ?? '-',

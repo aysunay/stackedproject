@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stackedproject/ui/views/shared/shared_view.dart';
+import '../../common/app_colors.dart';
 import 'my_profile_viewmodel.dart';
 
 class MyProfileView extends SharedView<MyProfileViewModel> {
@@ -10,18 +11,16 @@ class MyProfileView extends SharedView<MyProfileViewModel> {
 
   @override
   List<Widget> get leftIcons => [
-        const BackButton(color: Colors.black),
+        const BackButton(color: black),
       ];
 
   @override
-  List<Widget> buildActions(
-      BuildContext context, MyProfileViewModel viewModel) {
+  List<Widget> buildActions(BuildContext context, MyProfileViewModel viewModel) {
     return [];
   }
 
   @override
-  MyProfileViewModel viewModelBuilder(BuildContext context) =>
-      MyProfileViewModel();
+  MyProfileViewModel viewModelBuilder(BuildContext context) => MyProfileViewModel();
 
   @override
   Widget buildBody(BuildContext context, MyProfileViewModel viewModel) {
@@ -32,14 +31,11 @@ class MyProfileView extends SharedView<MyProfileViewModel> {
         children: [
           const CircleAvatar(
             radius: 50,
-            backgroundImage:
-                NetworkImage('https://randomuser.me/api/portraits/women/1.jpg'),
+            backgroundImage: NetworkImage('https://randomuser.me/api/portraits/women/1.jpg'),
           ),
           const SizedBox(height: 16),
-          const Text('Jenny Wilson',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-          const Text('Female · 78 Years',
-              style: TextStyle(fontSize: 16, color: Colors.grey)),
+          const Text('Jenny Wilson', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+          const Text('Female · 78 Years', style: TextStyle(fontSize: 16, color: gray)),
           const SizedBox(height: 24),
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -83,8 +79,7 @@ class MyProfileView extends SharedView<MyProfileViewModel> {
     );
   }
 
-  Widget _infoCard(
-      {required IconData icon, required String title, String? subtitle}) {
+  Widget _infoCard({required IconData icon, required String title, String? subtitle}) {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 6),
       child: ListTile(

@@ -21,7 +21,7 @@ class CardListViewModel extends StreamViewModel<List<OnTimeCardModel>> {
   Stream<List<OnTimeCardModel>> get stream => _cardService.cardStream;
 
   Future<void> refreshCards() async {
-    await _signalRService.invoke("RequestCards");
+    notifySourceChanged();
   }
 
   Future<void> _initSignalR() async {

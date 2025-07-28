@@ -3,6 +3,8 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:stackedproject/app/app.locator.dart';
 
+import '../../common/app_colors.dart';
+
 abstract class SharedView<T extends BaseViewModel> extends StackedView<T> {
   final int? currentIndex;
   final ValueChanged<int>? onTabTapped;
@@ -29,25 +31,21 @@ abstract class SharedView<T extends BaseViewModel> extends StackedView<T> {
       backgroundColor: const Color(0xFFF5F7FB),
       appBar: AppBar(
         title: Text(title ?? ""),
-        backgroundColor: Colors.white,
+        backgroundColor: white,
         elevation: 0,
-        // TODO: Geri gidilebilir bir durum yoksa buton çalışmayacak ve soluk gözükecek.
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new,
-            color: locator<NavigationService>().previousRoute.isEmpty ? Colors.black38 : Colors.black,
+            color: locator<NavigationService>().previousRoute.isEmpty ? Colors.black38 : black,
           ),
-          onPressed: () {
-            if (locator<NavigationService>().previousRoute.isEmpty) return;
-            locator<NavigationService>().back();
-          },
+          onPressed: locator<NavigationService>().previousRoute.isEmpty ? null : () => locator<NavigationService>().back(),
         ),
         centerTitle: true,
         actions: buildActions(context, viewModel),
       ),
       body: buildBody(context, viewModel),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
+        backgroundColor: white,
         currentIndex: currentIndex ?? 0,
         onTap: onTabTapped,
         items: const [

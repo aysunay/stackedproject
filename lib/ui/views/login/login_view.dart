@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stackedproject/ui/common/app_colors.dart';
 import 'package:stackedproject/ui/views/login/login_viewmodel.dart';
+
+import '../../common/ui_helpers.dart';
 
 class LoginView extends StackedView<LoginViewModel> {
   const LoginView({super.key});
@@ -8,7 +11,7 @@ class LoginView extends StackedView<LoginViewModel> {
   @override
   Widget builder(BuildContext context, LoginViewModel viewModel, Widget? child) {
     return Scaffold(
-      backgroundColor: Colors.white70,
+      backgroundColor: white,
       body: Column(
         children: [
           Padding(
@@ -31,7 +34,7 @@ class LoginView extends StackedView<LoginViewModel> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text('Sign In', style: TextStyle(fontSize: 20)),
-                      const SizedBox(height: 10),
+                      verticalSpaceSmall,
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 5),
                         child: TextFormField(
@@ -48,7 +51,7 @@ class LoginView extends StackedView<LoginViewModel> {
                           },
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      verticalSpaceMedium,
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 5),
                         child: Column(
@@ -74,13 +77,13 @@ class LoginView extends StackedView<LoginViewModel> {
                                 return null;
                               },
                             ),
-                            const SizedBox(height: 5),
+                            verticalSpaceTiny,
                             GestureDetector(
                               onTap: () {},
                               child: const Text(
                                 "Forgot password?",
                                 style: TextStyle(
-                                  color: Colors.red,
+                                  color: red,
                                   fontSize: 15,
                                 ),
                               ),
@@ -88,31 +91,27 @@ class LoginView extends StackedView<LoginViewModel> {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      verticalSpaceMedium,
                       if (viewModel.isBusy)
                         const CircularProgressIndicator()
                       else ...[
-                        SizedBox(
-                          width: 145,
-                          height: 35,
+                        fixedSizeBox(
                           child: ElevatedButton(
                             onPressed: () async => await viewModel.login(),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red,
-                              foregroundColor: Colors.white,
+                              backgroundColor: red,
+                              foregroundColor: white,
                             ),
                             child: const Text('Login'),
                           ),
                         ),
-                        const SizedBox(height: 30),
-                        SizedBox(
-                          width: 145,
-                          height: 35,
+                        verticalSpaceMedium,
+                        fixedSizeBox(
                           child: ElevatedButton(
                             onPressed: viewModel.isBusy ? null : () {},
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red,
-                              foregroundColor: Colors.white,
+                              backgroundColor: red,
+                              foregroundColor: white,
                             ),
                             child: const Text('Sign Up'),
                           ),

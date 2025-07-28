@@ -26,7 +26,7 @@ class RemoveTechnicianDialog extends StackedView<RemoveTechnicianDialogModel> {
   ) {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      backgroundColor: Colors.white,
+      backgroundColor: white,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
@@ -66,7 +66,7 @@ class RemoveTechnicianDialog extends StackedView<RemoveTechnicianDialogModel> {
                   width: _graphicSize,
                   height: _graphicSize,
                   decoration: const BoxDecoration(
-                    color: Color(0xFFF6E7B0),
+                    color: yellowLight,
                     borderRadius: BorderRadius.all(
                       Radius.circular(_graphicSize / 2),
                     ),
@@ -84,13 +84,13 @@ class RemoveTechnicianDialog extends StackedView<RemoveTechnicianDialogModel> {
                 width: double.infinity,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Colors.black,
+                  color: black,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: const Text(
                   'Got it',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: white,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),

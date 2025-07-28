@@ -26,7 +26,7 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
   ) {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      backgroundColor: Colors.white,
+      backgroundColor: white,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
@@ -64,7 +64,7 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
                   width: _graphicSize,
                   height: _graphicSize,
                   decoration: const BoxDecoration(
-                    color: Color(0xffF6E7B0),
+                    color: yellowLight,
                     borderRadius: BorderRadius.all(
                       Radius.circular(_graphicSize / 2),
                     ),
@@ -82,13 +82,13 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
                 width: double.infinity,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Colors.black,
+                  color: black,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: const Text(
                   'Got it',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: white,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
@@ -102,6 +102,5 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
   }
 
   @override
-  InfoAlertDialogModel viewModelBuilder(BuildContext context) =>
-      InfoAlertDialogModel();
+  InfoAlertDialogModel viewModelBuilder(BuildContext context) => InfoAlertDialogModel();
 }

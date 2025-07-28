@@ -6,7 +6,9 @@ import 'package:stackedproject/model/user_model.dart';
 class AuthService {
   String? _token;
 
-  String? get token => _token;
+  Future<String?> getToken() async {
+    return _token;
+  }
 
   UserModel? _currentUser;
 
@@ -42,10 +44,8 @@ class AuthService {
           email: data['email'] ?? '',
           name: data['firstName'] ?? '',
         );
-
         return true;
       }
-
       return false;
     } catch (e) {
       log("Login error: $e");
