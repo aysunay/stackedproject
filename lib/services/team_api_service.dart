@@ -1,19 +1,23 @@
-import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import '../model/technician_model.dart';
+import 'package:dio/dio.dart';
+import 'package:stackedproject/model/technician_model.dart';
 
 part 'team_api_service.g.dart';
 
-@RestApi(baseUrl: 'https://api.my-mro.com')
+@RestApi(baseUrl: "http:// 192.168.60.111/api")
 abstract class TeamApiService {
   factory TeamApiService(Dio dio, {String baseUrl}) = _TeamApiService;
 
-  @GET('/facility/{facilityId}/technicians')
-  Future<List<Technician>> getTeam(@Path() String facilityId);
+  @POST('/technicians')
+  Future<Technician> addTechnician({
+    @Field('name') required String name,
+    @Field('role') required String role,
+  });
 
-  @POST('/facility/{facilityId}/technicians/add')
-  Future<void> addTechnician(@Path() String facilityId, @Body() Technician technician);
+  @GET('/teams/{facilityId}/technicians')
+  Future<List<Technician>> getTechnicians(
+      @Path('facilityId') String facilityId);
 
-  @POST('/facility/{facilityId}/technicians/remove')
-  Future<void> removeTechnician(@Path() String facilityId, @Body() Technician technician);
+  @DELETE('/technicians/{id}')
+  Future<void> deleteTechnician(@Path('id') String id);
 }

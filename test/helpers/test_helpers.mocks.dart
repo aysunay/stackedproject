@@ -689,6 +689,13 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthService extends _i1.Mock implements _i7.AuthService {
   @override
+  bool get isTeamLeader => (super.noSuchMethod(
+        Invocation.getter(#isTeamLeader),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
   _i5.Future<bool> login(
     String? email,
     String? password,

@@ -14,5 +14,6 @@ class Technician with _$Technician {
     String? photoUrl,
   }) = _Technician;
 
-  factory Technician.fromJson(Map<String, dynamic> json) => _$TechnicianFromJson(json);
+  factory Technician.fromJson(Map<String, dynamic> json) =>
+      _$TechnicianFromJson(json);
 }

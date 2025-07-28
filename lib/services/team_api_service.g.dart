@@ -13,7 +13,7 @@ class _TeamApiService implements TeamApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://api.my-mro.com';
+    baseUrl ??= 'http:// 192.168.60.111/api';
   }
 
   final Dio _dio;
@@ -21,7 +21,36 @@ class _TeamApiService implements TeamApiService {
   String? baseUrl;
 
   @override
-  Future<List<Technician>> getTeam(String facilityId) async {
+  Future<Technician> addTechnician({
+    required String name,
+    required String role,
+  }) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = {
+      'name': name,
+      'role': role,
+    };
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<Technician>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/technicians',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = Technician.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<List<Technician>> getTechnicians(String facilityId) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -34,7 +63,7 @@ class _TeamApiService implements TeamApiService {
     )
             .compose(
               _dio.options,
-              '/facility/${facilityId}/technicians',
+              '/teams/${facilityId}/technicians',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -46,45 +75,19 @@ class _TeamApiService implements TeamApiService {
   }
 
   @override
-  Future<void> addTechnician(
-    String facilityId,
-    Technician technician,
-  ) async {
+  Future<void> deleteTechnician(String id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = technician;
+    final Map<String, dynamic>? _data = null;
     await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
+      method: 'DELETE',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          '/facility/${facilityId}/technicians/add',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-  }
-
-  @override
-  Future<void> removeTechnician(
-    String facilityId,
-    Technician technician,
-  ) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = technician;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '/facility/${facilityId}/technicians/remove',
+          '/technicians/${id}',
           queryParameters: queryParameters,
           data: _data,
         )

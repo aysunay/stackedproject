@@ -18,7 +18,8 @@ void main() {
     await tester.pumpWidget(
       const MediaQuery(
         data: MediaQueryData(size: Size(393, 852), devicePixelRatio: 1.0),
-        child: MaterialApp(debugShowCheckedModeBanner: false, home: LoginView()),
+        child:
+            MaterialApp(debugShowCheckedModeBanner: false, home: LoginView()),
       ),
     );
 
