@@ -3,8 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 const double _tinySize = 5.0;
+const double _midSmallSize = 8.0;
 const double _smallSize = 10.0;
-const double _mediumSize = 25.0;
+const double _mediumSize = 30.0;
 const double _largeSize = 50.0;
 const double _massiveSize = 120.0;
 
@@ -14,10 +15,16 @@ const Widget horizontalSpaceMedium = SizedBox(width: _mediumSize);
 const Widget horizontalSpaceLarge = SizedBox(width: _largeSize);
 
 const Widget verticalSpaceTiny = SizedBox(height: _tinySize);
+const Widget verticalSpaceMidSmall = SizedBox(height: _midSmallSize);
 const Widget verticalSpaceSmall = SizedBox(height: _smallSize);
 const Widget verticalSpaceMedium = SizedBox(height: _mediumSize);
 const Widget verticalSpaceLarge = SizedBox(height: _largeSize);
 const Widget verticalSpaceMassive = SizedBox(height: _massiveSize);
+
+Widget fixedSizeBox(
+    {double width = 145, double height = 35, required Widget child}) {
+  return SizedBox(width: width, height: height, child: child);
+}
 
 Widget spacedDivider = const Column(
   children: <Widget>[

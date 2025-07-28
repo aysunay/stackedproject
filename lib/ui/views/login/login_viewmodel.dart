@@ -32,10 +32,13 @@ class LoginViewModel extends BaseViewModel {
 
     if (result) {
       _snackbarService.showSnackbar(
-          message: 'Login Successful', duration: const Duration(seconds: 3));
+        message: 'Login Successful',
+        duration: const Duration(seconds: 2),
+      );
 
+      // TODO: navigaton service kullanarak sayfa değişimi yapılacak
       await Future.delayed(const Duration(seconds: 1));
-      _navigationService.replaceWithMyTeamView();
+      _navigationService.replaceWithCardListView();
     } else {
       _snackbarService.showSnackbar(message: 'E-posta veya şifre yanlış!');
     }

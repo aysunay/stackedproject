@@ -4,10 +4,15 @@ import 'package:http/http.dart' as http;
 import 'package:stackedproject/model/user_model.dart';
 
 class AuthService {
+  String? _token;
+
+  String? get token => _token;
+
   UserModel? _currentUser;
 
   UserModel? get currentUser => _currentUser;
 
+  //TODO: Role bilgisi db, api ve uygulamada Enum olarak tutulacak.
   bool get isTeamLeader => _currentUser?.role == 'team_leader';
 
   Future<bool> login(String email, String password) async {
@@ -24,15 +29,20 @@ class AuthService {
         body: jsonEncode(body),
       );
 
+      //TODO: kendi apimize bağlanacak
+      //TODO: role bilgisi sağlanacak
+      //TODO: şifre tutulmayacak, accessToken bilgisi FlutterSecureStorage ile tutulacak.
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
+
+        _token = data['accessToken'];
 
         _currentUser = UserModel(
           id: data['id'].toString(),
           email: data['email'] ?? '',
           name: data['firstName'] ?? '',
-          role: data['role'] ?? 'intern',
-          password: password,
+          // role: data['role'] ?? 'intern',
+          // password: password,
         );
 
         return true;
