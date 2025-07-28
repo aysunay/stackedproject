@@ -9,7 +9,6 @@ Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
   await setupLocator();
-
   runApp(const MyApp());
 }
 
@@ -36,8 +35,7 @@ class _MyAppState extends State<MyApp> {
       title: "Core OnTime",
       theme: ThemeData(
         fontFamily: 'OpenSans',
-        textTheme:
-            Theme.of(context).textTheme.apply(fontFamily: 'OpenSans').apply(),
+        textTheme: Theme.of(context).textTheme.apply(fontFamily: 'OpenSans').apply(),
         dialogTheme: const DialogThemeData(backgroundColor: Colors.white),
         splashFactory: NoSplash.splashFactory,
         highlightColor: Colors.transparent,
@@ -45,7 +43,7 @@ class _MyAppState extends State<MyApp> {
         hoverColor: Colors.transparent,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.cardListView,
+      initialRoute: Routes.loginView,
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,
       navigatorObservers: [

@@ -1,25 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_model.dart';
+part of 'technician_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UserModelImpl _$$UserModelImplFromJson(Map<String, dynamic> json) =>
-    _$UserModelImpl(
+_$TechnicianImpl _$$TechnicianImplFromJson(Map<String, dynamic> json) =>
+    _$TechnicianImpl(
       id: json['id'] as String,
-      email: json['email'] as String,
       name: json['name'] as String,
       role: json['role'] as String,
-      password: json['password'] as String,
+      contact: json['contact'] as String,
+      status: json['status'] as String,
+      photoUrl: json['photoUrl'] as String?,
     );
 
-Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>
+Map<String, dynamic> _$$TechnicianImplToJson(_$TechnicianImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'email': instance.email,
       'name': instance.name,
       'role': instance.role,
-      'password': instance.password,
+      'contact': instance.contact,
+      'status': instance.status,
+      'photoUrl': instance.photoUrl,
     };

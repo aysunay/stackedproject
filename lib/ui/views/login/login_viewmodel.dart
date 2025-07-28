@@ -5,13 +5,10 @@ import 'package:stackedproject/app/app.locator.dart';
 import 'package:stackedproject/app/app.router.dart';
 import 'package:stackedproject/services/auth_service.dart';
 
-import '../../../services/signal_r_service.dart';
-
 class LoginViewModel extends BaseViewModel {
   final _authService = locator<AuthService>();
   final _snackbarService = locator<SnackbarService>();
   final _navigationService = locator<NavigationService>();
-  final _signalRService = locator<SignalRService>();
 
   final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
@@ -28,18 +25,19 @@ class LoginViewModel extends BaseViewModel {
   Future<void> login() async {
     if (!formKey.currentState!.validate()) return;
 
-    final result = await runBusyFuture(
-      _authService.login(emailController.text, passwordController.text),
-    );
+    bool result = await runBusyFuture(_authService.login(
+      emailController.text,
+      passwordController.text,
+    ));
 
     if (result) {
       _snackbarService.showSnackbar(
         message: 'Login Successful',
-        duration: const Duration(seconds: 1),
+        duration: const Duration(seconds: 2),
       );
 
-      await _signalRService.initConnection();
-
+      // TODO: navigaton service kullanarak sayfa değişimi yapılacak
+      await Future.delayed(const Duration(seconds: 1));
       _navigationService.replaceWithCardListView();
     } else {
       _snackbarService.showSnackbar(message: 'E-posta veya şifre yanlış!');
