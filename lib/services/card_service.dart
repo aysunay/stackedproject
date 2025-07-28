@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:rxdart/rxdart.dart';
 import '../app/app.locator.dart';
 import '../model/on_time_card_model.dart';
