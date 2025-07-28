@@ -53,7 +53,7 @@ class RemoveTechnicianDialog extends StackedView<RemoveTechnicianDialogModel> {
                           request.description!,
                           style: const TextStyle(
                             fontSize: 14,
-                            color: kcMediumGrey,
+                            color: gray,
                           ),
                           maxLines: 3,
                           softWrap: true,
@@ -104,6 +104,5 @@ class RemoveTechnicianDialog extends StackedView<RemoveTechnicianDialogModel> {
   }
 
   @override
-  RemoveTechnicianDialogModel viewModelBuilder(BuildContext context) =>
-      RemoveTechnicianDialogModel();
+  RemoveTechnicianDialogModel viewModelBuilder(BuildContext context) => RemoveTechnicianDialogModel();
 }

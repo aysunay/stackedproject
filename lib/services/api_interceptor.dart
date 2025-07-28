@@ -16,7 +16,8 @@ class ApiInterceptor extends Interceptor {
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
-    if (err.type == DioExceptionType.badResponse && err.response?.statusCode == 401) {
+    if (err.type == DioExceptionType.badResponse &&
+        err.response?.statusCode == 401) {
       print('Token expired - kullanıcı logout olmalı veya token yenilenmeli');
     } else if (err.type == DioExceptionType.connectionError) {
       print('İnternet bağlantısı yok');

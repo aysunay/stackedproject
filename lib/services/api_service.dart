@@ -18,7 +18,8 @@ abstract class ApiService {
   Future<OnTimeCardModel> getOnTimeCard(@Path("id") int id);
 
   @PUT("/updateTaskCards/{id}")
-  Future<OnTimeCardModel> updateOnTimeCard(@Path("id") int id, @Body() OnTimeCardModel card);
+  Future<OnTimeCardModel> updateOnTimeCard(
+      @Path("id") int id, @Body() OnTimeCardModel card);
 
   @DELETE("/deleteTaskCards/{id}")
   Future<void> deleteOnTimeCard(@Path("id") int id);

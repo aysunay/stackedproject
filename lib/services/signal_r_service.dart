@@ -11,7 +11,10 @@ class SignalRService {
   HubConnection get connection => _connection;
 
   Future<void> initConnection() async {
-    _connection = HubConnectionBuilder().withUrl("https://localhost:7163/taskCardHub").withAutomaticReconnect().build();
+    _connection = HubConnectionBuilder()
+        .withUrl("https://localhost:7163/taskCardHub")
+        .withAutomaticReconnect()
+        .build();
 
     _connection.onclose(({error}) {
       print('SignalR bağlantısı kapandı: $error');
@@ -24,7 +27,10 @@ class SignalRService {
         try {
           final List cardsJson = arguments[0] as List;
 
-          final cards = cardsJson.map((e) => OnTimeCardModel.fromJson(Map<String, dynamic>.from(e as Map<dynamic, dynamic>))).toList();
+          final cards = cardsJson
+              .map((e) => OnTimeCardModel.fromJson(
+                  Map<String, dynamic>.from(e as Map<dynamic, dynamic>)))
+              .toList();
 
           _cardsController.add(cards);
         } catch (e) {
@@ -66,3 +72,75 @@ class SignalRService {
     _cardsController.close();
   }
 }
+
+//
+// import 'dart:async';
+// import 'package:signalr_netcore/signalr_client.dart';
+// import 'package:stackedproject/model/technician_model.dart';
+//
+// class SignalRService {
+//   Function(Technician)? onTechnicianAdded;
+//   Function(String technicianId)? onTechnicianRemoved;
+//
+//   HubConnectionState _connectionState = HubConnectionState.Disconnected;
+//   HubConnectionState get connectionState => _connectionState;
+//   bool get isConnected => _connectionState == HubConnectionState.Connected;
+//
+//   String get connectionStatusLabel {
+//     switch (_connectionState) {
+//       case HubConnectionState.Connected:
+//         return "Connected";
+//       case HubConnectionState.Connecting:
+//         return "Connecting...";
+//       case HubConnectionState.Reconnecting:
+//         return "Reconnecting...";
+//       case HubConnectionState.Disconnected:
+//       default:
+//         return "Disconnected";
+//     }
+//   }
+//
+//   Future<void> connect() async {
+//     if (_hubConnection.state == HubConnectionState.connected) return;
+//
+//     _hubConnection.onclose((error) async {
+//       _connectionState = HubConnectionState.disconnected;
+//       print("SignalR disconnected. Reconnecting in 5s...");
+//       await Future.delayed(const Duration(seconds: 5));
+//       await connect();
+//     });
+//
+//     _hubConnection.on('TechnicianAdded', (args) {
+//       if (args != null && args.isNotEmpty) {
+//         final tech = Technician.fromJson(args[0] as Map<String, dynamic>);
+//         onTechnicianAdded?.call(tech);
+//       }
+//     });
+//
+//     _hubConnection.on('TechnicianRemoved', (args) {
+//       if (args != null && args.isNotEmpty) {
+//         final techId = args[0] as String;
+//         onTechnicianRemoved?.call(techId);
+//       }
+//     });
+//
+//     try {
+//       await _hubConnection.start();
+//       _connectionState = HubConnectionState.connected;
+//       print("SignalR connected.");
+//     } catch (e) {
+//       _connectionState = HubConnectionState.disconnected;
+//       print("SignalR connection failed: $e");
+//     }
+//   }
+//
+//   Future<void> disconnect() async {
+//     try {
+//       await _hubConnection.stop();
+//       _connectionState = HubConnectionState.disconnected;
+//       print("SignalR disconnected manually.");
+//     } catch (e) {
+//       print("Error during disconnect: $e");
+//     }
+//   }
+// }

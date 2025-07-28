@@ -31,8 +31,12 @@ class OnTimeCardModel {
     return OnTimeCardModel(
       id: json['Id'] is int ? json['Id'] : int.tryParse(json['Id'].toString()),
       barcode: json['Barcode']?.toString(),
-      typeId: json['TypeId'] is int ? json['TypeId'] : int.tryParse(json['TypeId'].toString()),
-      statusId: json['StatusId'] is int ? json['StatusId'] : int.tryParse(json['StatusId'].toString()),
+      typeId: json['TypeId'] is int
+          ? json['TypeId']
+          : int.tryParse(json['TypeId'].toString()),
+      statusId: json['StatusId'] is int
+          ? json['StatusId']
+          : int.tryParse(json['StatusId'].toString()),
       description: json['Description']?.toString(),
       tailNo: json['TailNo']?.toString(),
       isCritical: json['IsCritical'] == true || json['IsCritical'] == "true",
