@@ -819,30 +819,6 @@ class MockApiService extends _i1.Mock implements _i11.ApiService {
       ) as _i7.Future<List<_i3.OnTimeCardModel>>);
 
   @override
-  _i7.Future<_i3.OnTimeCardModel> getOnTimeCard(int? id) => (super.noSuchMethod(
-        Invocation.method(
-          #getOnTimeCard,
-          [id],
-        ),
-        returnValue:
-            _i7.Future<_i3.OnTimeCardModel>.value(_FakeOnTimeCardModel_1(
-          this,
-          Invocation.method(
-            #getOnTimeCard,
-            [id],
-          ),
-        )),
-        returnValueForMissingStub:
-            _i7.Future<_i3.OnTimeCardModel>.value(_FakeOnTimeCardModel_1(
-          this,
-          Invocation.method(
-            #getOnTimeCard,
-            [id],
-          ),
-        )),
-      ) as _i7.Future<_i3.OnTimeCardModel>);
-
-  @override
   _i7.Future<_i3.OnTimeCardModel> createOnTimeCard(_i3.OnTimeCardModel? card) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -863,6 +839,30 @@ class MockApiService extends _i1.Mock implements _i11.ApiService {
           Invocation.method(
             #createOnTimeCard,
             [card],
+          ),
+        )),
+      ) as _i7.Future<_i3.OnTimeCardModel>);
+
+  @override
+  _i7.Future<_i3.OnTimeCardModel> getOnTimeCard(int? id) => (super.noSuchMethod(
+        Invocation.method(
+          #getOnTimeCard,
+          [id],
+        ),
+        returnValue:
+            _i7.Future<_i3.OnTimeCardModel>.value(_FakeOnTimeCardModel_1(
+          this,
+          Invocation.method(
+            #getOnTimeCard,
+            [id],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i7.Future<_i3.OnTimeCardModel>.value(_FakeOnTimeCardModel_1(
+          this,
+          Invocation.method(
+            #getOnTimeCard,
+            [id],
           ),
         )),
       ) as _i7.Future<_i3.OnTimeCardModel>);
@@ -918,4 +918,42 @@ class MockApiService extends _i1.Mock implements _i11.ApiService {
 /// A class which mocks [CardService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCardService extends _i1.Mock implements _i12.CardService {}
+class MockCardService extends _i1.Mock implements _i12.CardService {
+  @override
+  _i7.Stream<List<_i3.OnTimeCardModel>> get cardStream => (super.noSuchMethod(
+        Invocation.getter(#cardStream),
+        returnValue: _i7.Stream<List<_i3.OnTimeCardModel>>.empty(),
+        returnValueForMissingStub:
+            _i7.Stream<List<_i3.OnTimeCardModel>>.empty(),
+      ) as _i7.Stream<List<_i3.OnTimeCardModel>>);
+
+  @override
+  _i7.Future<void> init() => (super.noSuchMethod(
+        Invocation.method(
+          #init,
+          [],
+        ),
+        returnValue: _i7.Future<void>.value(),
+        returnValueForMissingStub: _i7.Future<void>.value(),
+      ) as _i7.Future<void>);
+
+  @override
+  _i7.Future<void> fetchCards() => (super.noSuchMethod(
+        Invocation.method(
+          #fetchCards,
+          [],
+        ),
+        returnValue: _i7.Future<void>.value(),
+        returnValueForMissingStub: _i7.Future<void>.value(),
+      ) as _i7.Future<void>);
+
+  @override
+  _i7.Future<void> dispose() => (super.noSuchMethod(
+        Invocation.method(
+          #dispose,
+          [],
+        ),
+        returnValue: _i7.Future<void>.value(),
+        returnValueForMissingStub: _i7.Future<void>.value(),
+      ) as _i7.Future<void>);
+}

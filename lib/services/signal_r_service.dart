@@ -11,10 +11,7 @@ class SignalRService {
   HubConnection get connection => _connection;
 
   Future<void> initConnection() async {
-    _connection = HubConnectionBuilder()
-        .withUrl("https://localhost:7163/taskCardHub")
-        .withAutomaticReconnect()
-        .build();
+    _connection = HubConnectionBuilder().withUrl("https://localhost:7163/taskCardHub").withAutomaticReconnect().build();
 
     _connection.onclose(({error}) {
       print('SignalR bağlantısı kapandı: $error');
@@ -25,9 +22,10 @@ class SignalRService {
 
       if (arguments != null && arguments.isNotEmpty) {
         try {
-          final list = (arguments[0] as List).cast<Map<String, dynamic>>();
-          final cards =
-              list.map((json) => OnTimeCardModel.fromJson(json)).toList();
+          final List cardsJson = arguments[0] as List;
+
+          final cards = cardsJson.map((e) => OnTimeCardModel.fromJson(Map<String, dynamic>.from(e as Map<dynamic, dynamic>))).toList();
+
           _cardsController.add(cards);
         } catch (e) {
           print("JSON parse hatası: $e");

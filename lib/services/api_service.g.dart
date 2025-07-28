@@ -13,7 +13,7 @@ class _ApiService implements ApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://api.example.com';
+    baseUrl ??= 'https://localhost:7163/api/TaskCard';
   }
 
   final Dio _dio;
@@ -34,7 +34,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              '/ontimecards',
+              '/getTaskCards',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -42,29 +42,6 @@ class _ApiService implements ApiService {
     var value = _result.data!
         .map((dynamic i) => OnTimeCardModel.fromJson(i as Map<String, dynamic>))
         .toList();
-    return value;
-  }
-
-  @override
-  Future<OnTimeCardModel> getOnTimeCard(int id) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<OnTimeCardModel>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/ontimecards/${id}',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = OnTimeCardModel.fromJson(_result.data!);
     return value;
   }
 
@@ -82,7 +59,30 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              '/ontimecards',
+              '/addTaskCards',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = OnTimeCardModel.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<OnTimeCardModel> getOnTimeCard(int id) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<OnTimeCardModel>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/getTaskCards/${id}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -108,7 +108,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              '/ontimecards/${id}',
+              '/updateTaskCards/${id}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -130,7 +130,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          '/ontimecards/${id}',
+          '/deleteTaskCards/${id}',
           queryParameters: queryParameters,
           data: _data,
         )
