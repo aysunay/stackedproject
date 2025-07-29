@@ -5,8 +5,6 @@ import 'package:stackedproject/app/app.locator.dart';
 import 'package:stackedproject/app/app.router.dart';
 import 'package:stackedproject/services/auth_service.dart';
 
-import '../../../model/auth_models/user_login_model.dart';
-
 class LoginViewModel extends BaseViewModel {
   final _authService = locator<AuthService>();
   final _snackbarService = locator<SnackbarService>();
@@ -17,6 +15,7 @@ class LoginViewModel extends BaseViewModel {
   final passwordController = TextEditingController();
 
   bool _obscurePassword = true;
+
   bool get obscurePassword => _obscurePassword;
 
   void toggleObscurePassword() {
@@ -27,12 +26,12 @@ class LoginViewModel extends BaseViewModel {
   Future<void> login() async {
     if (!formKey.currentState!.validate()) return;
 
-    final loginModel = UserLoginModel(
-      email: emailController.text.trim(),
-      password: passwordController.text.trim(),
-    );
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
 
-    bool result = await runBusyFuture(_authService.login(loginModel));
+    bool result = await runBusyFuture(
+      _authService.loginWithCredentials(email, password),
+    );
 
     if (result) {
       _snackbarService.showSnackbar(
@@ -42,7 +41,34 @@ class LoginViewModel extends BaseViewModel {
 
       _navigationService.replaceWithCardListView();
     } else {
-      _snackbarService.showSnackbar(message: 'E-posta veya şifre yanlış!');
+      _snackbarService.showSnackbar(
+        message: 'E-posta veya şifre yanlış!',
+        duration: const Duration(seconds: 1),
+      );
+    }
+  }
+
+  Future<void> register() async {
+    if (!formKey.currentState!.validate()) return;
+
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+    final username = email.split('@')[0];
+
+    bool result = await runBusyFuture(
+      _authService.registerWithCredentials(email, password, username),
+    );
+
+    if (result) {
+      _snackbarService.showSnackbar(
+        message: 'Kayıt başarılı! Giriş yapabilirsiniz.',
+        duration: const Duration(seconds: 1),
+      );
+    } else {
+      _snackbarService.showSnackbar(
+        message: 'Kayıt başarısız. E-posta kayıtlı olabilir.',
+        duration: const Duration(seconds: 1),
+      );
     }
   }
 

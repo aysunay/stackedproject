@@ -1,20 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_login_model.dart';
+part of 'user_register_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UserLoginModelImpl _$$UserLoginModelImplFromJson(Map<String, dynamic> json) =>
-    _$UserLoginModelImpl(
+_$UserRegisterModelImpl _$$UserRegisterModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UserRegisterModelImpl(
       email: json['email'] as String,
       password: json['password'] as String,
+      username: json['username'] as String,
     );
 
-Map<String, dynamic> _$$UserLoginModelImplToJson(
-        _$UserLoginModelImpl instance) =>
+Map<String, dynamic> _$$UserRegisterModelImplToJson(
+        _$UserRegisterModelImpl instance) =>
     <String, dynamic>{
       'email': instance.email,
       'password': instance.password,
+      'username': instance.username,
     };

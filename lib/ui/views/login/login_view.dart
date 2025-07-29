@@ -108,7 +108,7 @@ class LoginView extends StackedView<LoginViewModel> {
                         verticalSpaceMedium,
                         fixedSizeBox(
                           child: ElevatedButton(
-                            onPressed: viewModel.isBusy ? null : () {},
+                            onPressed: viewModel.isBusy ? null : () async => await viewModel.register(),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: red,
                               foregroundColor: white,
