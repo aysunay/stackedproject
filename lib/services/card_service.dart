@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:rxdart/rxdart.dart';
 import '../app/app.locator.dart';
 import '../model/on_time_card_model.dart';
@@ -15,33 +17,15 @@ class CardService {
     await _signalRService.initConnection();
 
     _signalRService.connection.on("ReceiveTaskCards", (arguments) {
-      print("ReceiveTaskCards tetiklendi");
-
       if (arguments != null && arguments.isNotEmpty) {
-        final firstArg = arguments[0];
-        print("First arg type: ${firstArg.runtimeType}");
+        final rawList = arguments[0] as List<dynamic>;
 
-        if (firstArg is List) {
-          try {
-            final cards = <OnTimeCardModel>[];
+        final cards = rawList.map((e) {
+          final json = Map<String, dynamic>.from(e as Map);
+          return OnTimeCardModel.fromJson(json);
+        }).toList();
 
-            for (var e in firstArg) {
-              try {
-                final parsedMap = Map<String, dynamic>.from(e as Map);
-                final model = OnTimeCardModel.fromJson(parsedMap);
-                cards.add(model);
-              } catch (err) {
-                print("Parse hatası: $err - veri: $e");
-              }
-            }
-
-            _cardStreamController.add(cards);
-          } catch (e, s) {
-            print("Kart listesi parse hatası: $e\n$s");
-          }
-        } else {
-          print("First argument is not List");
-        }
+        _cardStreamController.add(cards);
       }
     });
 

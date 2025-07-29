@@ -760,6 +760,25 @@ class MockAuthService extends _i1.Mock implements _i9.AuthService {
         returnValue: _i7.Future<bool>.value(false),
         returnValueForMissingStub: _i7.Future<bool>.value(false),
       ) as _i7.Future<bool>);
+
+  @override
+  _i7.Future<bool> registerWithCredentials(
+    String? email,
+    String? password,
+    String? username,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #registerWithCredentials,
+          [
+            email,
+            password,
+            username,
+          ],
+        ),
+        returnValue: _i7.Future<bool>.value(false),
+        returnValueForMissingStub: _i7.Future<bool>.value(false),
+      ) as _i7.Future<bool>);
 }
 
 /// A class which mocks [SignalRService].

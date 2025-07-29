@@ -13,12 +13,17 @@ class CardListViewModel extends StreamViewModel<List<OnTimeCardModel>> {
   late final CardService _cardService;
 
   CardListViewModel() {
-    _cardService = CardService();
+    _cardService = locator<CardService>();
     _initSignalR();
   }
 
   @override
-  Stream<List<OnTimeCardModel>> get stream => _cardService.cardStream;
+  Stream<List<OnTimeCardModel>> get stream {
+    return _cardService.cardStream.map((cards) {
+      print("💡 ViewModel'de kart sayısı: ${cards.length}");
+      return cards;
+    });
+  }
 
   Future<void> refreshCards() async {
     setBusy(true);

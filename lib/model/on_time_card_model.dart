@@ -1,3 +1,4 @@
+/*
 class OnTimeCardModel {
   final int? id;
   final String? barcode;
@@ -49,4 +50,54 @@ class OnTimeCardModel {
   }
 
   get staffCount => 0;
+}
+*/
+/*import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'on_time_card_model.freezed.dart';
+part 'on_time_card_model.g.dart';
+
+@freezed
+class OnTimeCardModel with _$OnTimeCardModel {
+  const factory OnTimeCardModel({
+    @JsonKey(name: 'Id') int? id,
+    @JsonKey(name: 'Barcode') String? barcode,
+    @JsonKey(name: 'TypeId') int? typeId,
+    @JsonKey(name: 'StatusId') int? statusId,
+    @JsonKey(name: 'Description') String? description,
+    @JsonKey(name: 'TailNo') String? tailNo,
+    @JsonKey(name: 'IsCritical') bool? isCritical,
+    @JsonKey(name: 'CreateDate') String? createDate,
+    @JsonKey(name: 'CreateUser') String? createUser,
+    @JsonKey(name: 'UpdateDate') String? updateDate,
+    @JsonKey(name: 'UpdateUser') String? updateUser,
+    @JsonKey(name: 'IsActive') bool? isActive,
+  }) = _OnTimeCardModel;
+
+  factory OnTimeCardModel.fromJson(Map<String, dynamic> json) => _$OnTimeCardModelFromJson(json);
+}*/
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'on_time_card_model.freezed.dart';
+part 'on_time_card_model.g.dart';
+
+@freezed
+class OnTimeCardModel with _$OnTimeCardModel {
+  const factory OnTimeCardModel({
+    int? id,
+    String? barcode,
+    int? typeId,
+    int? statusId,
+    String? description,
+    String? tailNo,
+    bool? isCritical,
+    String? createDate,
+    String? createUser,
+    String? updateDate,
+    String? updateUser,
+    bool? isActive,
+  }) = _OnTimeCardModel;
+
+  factory OnTimeCardModel.fromJson(Map<String, dynamic> json) => _$OnTimeCardModelFromJson(json);
 }

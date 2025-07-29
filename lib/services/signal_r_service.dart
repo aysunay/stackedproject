@@ -11,10 +11,7 @@ class SignalRService {
   HubConnection get connection => _connection;
 
   Future<void> initConnection() async {
-    _connection = HubConnectionBuilder()
-        .withUrl("https://localhost:7163/taskCardHub")
-        .withAutomaticReconnect()
-        .build();
+    _connection = HubConnectionBuilder().withUrl("https://localhost:7163/taskCardHub").withAutomaticReconnect().build();
 
     _connection.onclose(({error}) {
       print('SignalR bağlantısı kapandı: $error');
@@ -26,11 +23,11 @@ class SignalRService {
       if (arguments != null && arguments.isNotEmpty) {
         try {
           final List cardsJson = arguments[0] as List;
+          print('arguments tipi: ${arguments.runtimeType}');
+          print('arguments[0] içeriği: ${arguments[0]}');
+          print('arguments[0] tipi: ${arguments[0].runtimeType}');
 
-          final cards = cardsJson
-              .map((e) => OnTimeCardModel.fromJson(
-                  Map<String, dynamic>.from(e as Map<dynamic, dynamic>)))
-              .toList();
+          final cards = cardsJson.map((e) => OnTimeCardModel.fromJson(Map<String, dynamic>.from(e as Map<dynamic, dynamic>))).toList();
 
           _cardsController.add(cards);
         } catch (e) {

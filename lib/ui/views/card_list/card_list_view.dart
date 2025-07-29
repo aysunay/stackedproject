@@ -64,7 +64,7 @@ class CardListView extends SharedView<CardListViewModel> {
               children: [
                 CustomCard(
                   onTap: () {
-                    // TODO: Card detay sayfasına geçiş
+                    //Card detay sayfasına geçiş
                   },
                   titleWidget: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,7 +117,7 @@ class CardListView extends SharedView<CardListViewModel> {
                         children: [
                           const Icon(Icons.people_alt, size: 25, color: kcgrayDark),
                           horizontalSpaceTiny,
-                          Text(card.staffCount.toString()),
+                          const Text('0'),
                         ],
                       ),
                     ),
