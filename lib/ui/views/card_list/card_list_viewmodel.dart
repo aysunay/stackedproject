@@ -37,13 +37,13 @@ class CardListViewModel extends StreamViewModel<List<OnTimeCardModel>> {
 
     switch (status) {
       case CardStatuses.active:
-        return green;
+        return kcgreen;
       case CardStatuses.pending:
-        return orange;
+        return kcorange;
       case CardStatuses.applied:
-        return yellow;
+        return kcyellow;
       case CardStatuses.booked:
-        return blueDark;
+        return kcblueDark;
     }
   }
 

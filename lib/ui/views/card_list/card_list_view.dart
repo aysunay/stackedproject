@@ -92,7 +92,7 @@ class CardListView extends SharedView<CardListViewModel> {
                       Text(
                         card.tailNo ?? '-',
                         style: const TextStyle(
-                          color: grayDark,
+                          color: kcgrayDark,
                           fontWeight: FontWeight.bold,
                           fontSize: 13,
                           letterSpacing: 1.1,
@@ -100,7 +100,7 @@ class CardListView extends SharedView<CardListViewModel> {
                       ),
                     ],
                   ),
-                  backgroundColor: white,
+                  backgroundColor: kcwhite,
                   subtitleWidget: null,
                   descriptionWidget: Text(
                     card.description ?? '-',
@@ -115,7 +115,7 @@ class CardListView extends SharedView<CardListViewModel> {
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          const Icon(Icons.people_alt, size: 25, color: grayDark),
+                          const Icon(Icons.people_alt, size: 25, color: kcgrayDark),
                           horizontalSpaceTiny,
                           Text(card.staffCount.toString()),
                         ],

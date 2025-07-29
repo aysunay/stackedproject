@@ -31,7 +31,7 @@ abstract class SharedView<T extends BaseViewModel> extends StackedView<T> {
       backgroundColor: const Color(0xFFF5F7FB),
       appBar: AppBar(
         title: Text(title ?? ""),
-        backgroundColor: white,
+        backgroundColor: kcwhite,
         elevation: 0,
         leading: Builder(
           builder: (context) {
@@ -40,7 +40,7 @@ abstract class SharedView<T extends BaseViewModel> extends StackedView<T> {
             return IconButton(
               icon: Icon(
                 Icons.arrow_back_ios_new,
-                color: isBackAvailable ? black : Colors.black38,
+                color: isBackAvailable ? kcblack : Colors.black38,
               ),
               onPressed: isBackAvailable ? () => locator<NavigationService>().back() : null,
             );
@@ -51,7 +51,7 @@ abstract class SharedView<T extends BaseViewModel> extends StackedView<T> {
       ),
       body: buildBody(context, viewModel),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: white,
+        backgroundColor: kcwhite,
         currentIndex: currentIndex ?? 0,
         onTap: onTabTapped,
         items: const [

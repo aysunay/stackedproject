@@ -11,7 +11,7 @@ class LoginView extends StackedView<LoginViewModel> {
   @override
   Widget builder(BuildContext context, LoginViewModel viewModel, Widget? child) {
     return Scaffold(
-      backgroundColor: white,
+      backgroundColor: kcwhite,
       body: Column(
         children: [
           Padding(
@@ -83,7 +83,7 @@ class LoginView extends StackedView<LoginViewModel> {
                               child: const Text(
                                 "Forgot password?",
                                 style: TextStyle(
-                                  color: red,
+                                  color: kcred,
                                   fontSize: 15,
                                 ),
                               ),
@@ -99,8 +99,8 @@ class LoginView extends StackedView<LoginViewModel> {
                           child: ElevatedButton(
                             onPressed: () async => await viewModel.login(),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: red,
-                              foregroundColor: white,
+                              backgroundColor: kcred,
+                              foregroundColor: kcwhite,
                             ),
                             child: const Text('Login'),
                           ),
@@ -110,8 +110,8 @@ class LoginView extends StackedView<LoginViewModel> {
                           child: ElevatedButton(
                             onPressed: viewModel.isBusy ? null : () async => await viewModel.register(),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: red,
-                              foregroundColor: white,
+                              backgroundColor: kcred,
+                              foregroundColor: kcwhite,
                             ),
                             child: const Text('Sign Up'),
                           ),

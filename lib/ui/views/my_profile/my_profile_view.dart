@@ -11,7 +11,7 @@ class MyProfileView extends SharedView<MyProfileViewModel> {
 
   @override
   List<Widget> get leftIcons => [
-        const BackButton(color: black),
+        const BackButton(color: kcblack),
       ];
 
   @override
@@ -35,7 +35,7 @@ class MyProfileView extends SharedView<MyProfileViewModel> {
           ),
           const SizedBox(height: 16),
           const Text('Jenny Wilson', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-          const Text('Female · 78 Years', style: TextStyle(fontSize: 16, color: gray)),
+          const Text('Female · 78 Years', style: TextStyle(fontSize: 16, color: kcgray)),
           const SizedBox(height: 24),
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

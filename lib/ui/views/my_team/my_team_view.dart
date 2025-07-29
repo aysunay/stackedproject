@@ -53,7 +53,7 @@ class MyTeamView extends SharedView<MyTeamViewModel> {
             subtitle: Text("Role: ${tech.role}"),
             trailing: viewModel.isTeamLeader
                 ? IconButton(
-                    icon: const Icon(Icons.delete, color: red),
+                    icon: const Icon(Icons.delete, color: kcred),
                     onPressed: () {},
                     // onPressed: () => viewModel.removeTechnician(tech.id),
                   )
