@@ -11,11 +11,12 @@ import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i5;
 import 'package:signalr_netcore/signalr_client.dart' as _i2;
 import 'package:stacked_services/stacked_services.dart' as _i4;
+import 'package:stackedproject/model/auth_models/user_login_model.dart' as _i10;
 import 'package:stackedproject/model/on_time_card_model.dart' as _i3;
-import 'package:stackedproject/services/api_service.dart' as _i11;
+import 'package:stackedproject/services/api_service.dart' as _i12;
 import 'package:stackedproject/services/auth_service.dart' as _i9;
-import 'package:stackedproject/services/card_service.dart' as _i12;
-import 'package:stackedproject/services/signal_r_service.dart' as _i10;
+import 'package:stackedproject/services/card_service.dart' as _i13;
+import 'package:stackedproject/services/signal_r_service.dart' as _i11;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -715,17 +716,21 @@ class MockDialogService extends _i1.Mock implements _i4.DialogService {
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthService extends _i1.Mock implements _i9.AuthService {
   @override
-  _i7.Future<bool> login(
-    String? email,
-    String? password,
-  ) =>
+  _i7.Future<String?> getToken() => (super.noSuchMethod(
+        Invocation.method(
+          #getToken,
+          [],
+        ),
+        returnValue: _i7.Future<String?>.value(),
+        returnValueForMissingStub: _i7.Future<String?>.value(),
+      ) as _i7.Future<String?>);
+
+  @override
+  _i7.Future<bool> login(_i10.UserLoginModel? loginModel) =>
       (super.noSuchMethod(
         Invocation.method(
           #login,
-          [
-            email,
-            password,
-          ],
+          [loginModel],
         ),
         returnValue: _i7.Future<bool>.value(false),
         returnValueForMissingStub: _i7.Future<bool>.value(false),
@@ -735,7 +740,7 @@ class MockAuthService extends _i1.Mock implements _i9.AuthService {
 /// A class which mocks [SignalRService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSignalRService extends _i1.Mock implements _i10.SignalRService {
+class MockSignalRService extends _i1.Mock implements _i11.SignalRService {
   @override
   _i7.Stream<List<_i3.OnTimeCardModel>> get cardsStream => (super.noSuchMethod(
         Invocation.getter(#cardsStream),
@@ -805,7 +810,7 @@ class MockSignalRService extends _i1.Mock implements _i10.SignalRService {
 /// A class which mocks [ApiService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockApiService extends _i1.Mock implements _i11.ApiService {
+class MockApiService extends _i1.Mock implements _i12.ApiService {
   @override
   _i7.Future<List<_i3.OnTimeCardModel>> getOnTimeCards() => (super.noSuchMethod(
         Invocation.method(
@@ -918,7 +923,7 @@ class MockApiService extends _i1.Mock implements _i11.ApiService {
 /// A class which mocks [CardService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCardService extends _i1.Mock implements _i12.CardService {
+class MockCardService extends _i1.Mock implements _i13.CardService {
   @override
   _i7.Stream<List<_i3.OnTimeCardModel>> get cardStream => (super.noSuchMethod(
         Invocation.getter(#cardStream),

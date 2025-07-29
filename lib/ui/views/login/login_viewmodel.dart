@@ -5,6 +5,8 @@ import 'package:stackedproject/app/app.locator.dart';
 import 'package:stackedproject/app/app.router.dart';
 import 'package:stackedproject/services/auth_service.dart';
 
+import '../../../model/auth_models/user_login_model.dart';
+
 class LoginViewModel extends BaseViewModel {
   final _authService = locator<AuthService>();
   final _snackbarService = locator<SnackbarService>();
@@ -25,18 +27,19 @@ class LoginViewModel extends BaseViewModel {
   Future<void> login() async {
     if (!formKey.currentState!.validate()) return;
 
-    bool result = await runBusyFuture(_authService.login(
-      emailController.text,
-      passwordController.text,
-    ));
+    final loginModel = UserLoginModel(
+      email: emailController.text.trim(),
+      password: passwordController.text.trim(),
+    );
+
+    bool result = await runBusyFuture(_authService.login(loginModel));
 
     if (result) {
       _snackbarService.showSnackbar(
         message: 'Login Successful',
-        duration: const Duration(seconds: 2),
+        duration: const Duration(seconds: 1),
       );
 
-      await Future.delayed(const Duration(seconds: 1));
       _navigationService.replaceWithCardListView();
     } else {
       _snackbarService.showSnackbar(message: 'E-posta veya şifre yanlış!');

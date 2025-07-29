@@ -33,12 +33,18 @@ abstract class SharedView<T extends BaseViewModel> extends StackedView<T> {
         title: Text(title ?? ""),
         backgroundColor: white,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios_new,
-            color: locator<NavigationService>().previousRoute.isEmpty ? Colors.black38 : black,
-          ),
-          onPressed: locator<NavigationService>().previousRoute.isEmpty ? null : () => locator<NavigationService>().back(),
+        leading: Builder(
+          builder: (context) {
+            final prevRoute = locator<NavigationService>().previousRoute;
+            final isBackAvailable = prevRoute != '/login-view' && prevRoute.isNotEmpty;
+            return IconButton(
+              icon: Icon(
+                Icons.arrow_back_ios_new,
+                color: isBackAvailable ? black : Colors.black38,
+              ),
+              onPressed: isBackAvailable ? () => locator<NavigationService>().back() : null,
+            );
+          },
         ),
         centerTitle: true,
         actions: buildActions(context, viewModel),

@@ -13,7 +13,7 @@ class _TeamApiService implements TeamApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'http:// 192.168.60.111/api';
+    baseUrl ??= 'http://localhost/api';
   }
 
   final Dio _dio;
